@@ -1,0 +1,63 @@
+#include <stdio.h> 
+#include <stdlib.h> 
+#include <time.h> 
+
+int main() 
+{ 
+    int i; 
+    int currentfloor = 0; 
+    int destinationfloor = 0; 
+  
+    while (1) { 
+        printf("Enter current floor number : "); 
+        scanf("%d", &currentfloor); 
+  
+        printf("Enter destination floor number : "); 
+        scanf("%d", &destinationfloor); 
+  
+        // If user enters invalid floor 
+        // If currentfloor or destinationfloor > 5 
+        if (currentfloor > 12 || destinationfloor > 12 || 
+            currentfloor < 0 || destinationfloor < 0) { 
+            printf("Invalid Input\n"); 
+            continue; 
+        } 
+  
+        // Sleep for 2 seconds 
+        for (i = 0; i < 2; i++) { 
+            sleep(1); 
+            printf("%d\n", i + 1); 
+        } 
+  
+        // If currentfloor and destinationfloor are same 
+        if (currentfloor == destinationfloor) { 
+            printf("Error\n"); 
+            continue; 
+        } 
+  
+        // If currentfloor > destinationfloor 
+        // Then lift will go down 
+        if (currentfloor > destinationfloor) { 
+            printf("Lift is going down from %d to %d\n", 
+                   currentfloor, destinationfloor); 
+            for (i = currentfloor; i >= destinationfloor; i--) { 
+                sleep(1); 
+                printf("%d ", i); 
+            } 
+            printf("\n"); 
+        } 
+  
+        // If currentfloor < destinationfloor 
+        // Then lift will go up 
+        else { 
+            printf("Lift is going up from %d to %d\n", 
+                   currentfloor, destinationfloor); 
+            for (i = currentfloor; i <= destinationfloor; i++) { 
+                sleep(1); 
+                printf("%d ", i); 
+            } 
+            printf("\n"); 
+        } 
+    } 
+    return 0; 
+}

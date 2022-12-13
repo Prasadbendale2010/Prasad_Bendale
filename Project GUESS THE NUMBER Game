@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main()
+{
+    //GUESS THE NUMBER 
+    
+    int num,guess,nguesses=1;
+    srand(time(0));
+    num = rand() % 100 + 1; // genrate a random number 1 to  100
+    //printf("the number is %d \n", num);  //display a randome number 
+    do
+    {
+       printf("guess the number between 1 to 100 : ");
+       scanf("%d",&guess);
+       if (guess>num)
+       {
+           printf("lower number plese\n");
+       }
+       else if(guess<num)
+       {
+           printf("high number plese\n");
+       }
+       else{
+           printf("you guess it in %d attempt\n",nguesses);
+       }
+       nguesses++;
+    } while (guess!=num);
+    
+
+    return 0;
+}

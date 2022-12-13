@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main()
+{
+int age,vipPass=1;
+    printf("Enter age : ");
+    scanf("%d",&age);
+
+    printf("you have a vipPass 'yes or No':\n");
+    scanf("%d",&vipPass);
+
+    if (age <=70 && age>18 || vipPass==1)
+    {
+        printf("%d you can drive \n",age);
+    }
+    else 
+    {
+       printf("%d you cannot drive\n",age);
+    }
+    return 0;
+}

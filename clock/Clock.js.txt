@@ -1,0 +1,32 @@
+export default function Widget() {
+    return (
+        
+        
+        <div className="flex items-center justify-center h-screen bg-black text-white">
+          <div className="text-9xl font-bold">
+            <span id="hours">12</span>
+            <span className="text-5xl">:</span>
+            <span id="minutes">47</span>
+          </div>
+          <div className="text-3xl mt-4" id="ampm">PM</div>
+        </div>
+        
+        <script>
+          function updateClock() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+        
+            document.getElementById('hours').textContent = hours % 12 || 12; // Convert to 12-hour format
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0'); // Add leading zero
+            document.getElementById('ampm').textContent = ampm;
+          }
+        
+          setInterval(updateClock, 1000);
+          updateClock(); // Initial call to set the clock immediately
+        </script>
+        
+        
+    )
+}
